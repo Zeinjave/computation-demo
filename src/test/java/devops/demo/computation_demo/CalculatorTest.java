@@ -72,12 +72,28 @@ public class CalculatorTest {
 	@ParameterizedTest(name = "{0} * {1} = {2}")
 	@DisplayName("Multiply two numbers")
 	@CsvFileSource(resources = "/data/multiply.csv", numLinesToSkip = 0)
+	
 	public void multiply_twoNumbers(int input1, int input2, int expected) {
 		int result = calculator.multiply(input1, input2);
 		assertEquals(expected, result);
 	}
 	
-	//---DIVIDE----
+	//---DIVIDE---
+	@ParameterizedTest(name = "{0} * {1} = {2}")
+	@DisplayName("Divide two numbers")
+	@CsvSource({
+		"100, 2, 50",
+		"100, -2, -50",
+		"-100, 2, -50",
+		"-100, -2, 50"
+	})
+	
+	public void divide_twoNumbers(int input1, int input2, int expected) {
+		int result = calculator.divide(input1, input2);
+		assertEquals(expected, result);
+	}
+	
+	//---DIVIDE BY ZERO----
 	@Test
 	@DisplayName("Divide by zero")
 	public void divide_byZero() {
