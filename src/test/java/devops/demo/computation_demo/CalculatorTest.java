@@ -79,7 +79,7 @@ public class CalculatorTest {
 	}
 	
 	//---DIVIDE---
-	@ParameterizedTest(name = "{0} * {1} = {2}")
+	@ParameterizedTest(name = "{0} / {1} = {2}")
 	@DisplayName("Divide two numbers")
 	@CsvSource({
 		"100, 2, 50",
